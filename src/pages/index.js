@@ -20,7 +20,9 @@ class RootIndex extends React.Component {
         <Helmet title={siteTitle} />
         <Hero />
         <About />
-        <Projects />
+        <Projects
+          projects={get(this, "props.data.allContentfulProject.edges")}
+        />
         <Skills />
         <Footer links={[{ label: "Bekijk mijn CV", link: "/cv.pdf" }]} />
       </div>
@@ -29,6 +31,31 @@ class RootIndex extends React.Component {
 }
 
 export default RootIndex;
+
+export const pageQuery = graphql`
+  query HomeQuery {
+    allContentfulProject(sort: { fields: [publishDate], order: DESC }) {
+      edges {
+        node {
+          title
+          slug
+          logo {
+            title
+            description
+            file {
+              url
+              fileName
+              contentType
+            }
+            sizes(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+              ...GatsbyContentfulSizes_withWebp
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 // export const pageQuery = graphql`
 //   query HomeQuery {

@@ -2,7 +2,6 @@ import React from "react";
 import Img from "gatsby-image";
 
 export default ({ links }) => {
-  console.log(links);
   return (
     <footer className="footer page__section" id="footer">
       <div className="wrapper-inner footer__wrapper-inner">

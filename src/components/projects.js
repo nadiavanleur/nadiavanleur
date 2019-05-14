@@ -1,9 +1,12 @@
 import React from "react";
 import Img from "gatsby-image";
+import get from "lodash/get";
 
 import SlickSlider from "../components/slider";
 
-export default ({ data }) => {
+export default ({ projects }) => {
+  console.log(projects);
+
   const assetsFolder = "/assets/";
   const infoImg = "/assets/info.svg";
 
@@ -12,42 +15,33 @@ export default ({ data }) => {
       <div className="wrapper-inner projects__wrapper-inner">
         <h2 className="projects__title page__title">Projecten</h2>
         <SlickSlider elementClass="projects__slider">
-          <li className="slider__slide">
-            <div className="slider__image-wrapper">
-              <img
-                src={`${assetsFolder}/cz_logo.svg`}
-                alt="CZ logo"
-                className="slider__image"
-              />
-              <a href="/project/werken-bij-cz" className="slider__link">
-                <img src={infoImg} alt="i" className="slider__info" />
-              </a>
-            </div>
-          </li>
-          <li className="slider__slide">
-            <div className="slider__image-wrapper">
-              <img
-                src={`${assetsFolder}/handpicked_logo.svg`}
-                alt="Handpicked Agencies logo"
-                className="slider__image"
-              />
-              <a href="/project/handpicked-agencies" className="slider__link">
-                <img src={infoImg} alt="i" className="slider__info" />
-              </a>
-            </div>
-          </li>
-          <li className="slider__slide">
-            <div className="slider__image-wrapper">
-              <img
-                src={`${assetsFolder}/dgg_logo.svg`}
-                alt="De Graaf Groep logo"
-                className="slider__image"
-              />
-              <a href="/project/de-graaf-groep" className="slider__link">
-                <img src={infoImg} alt="i" className="slider__info" />
-              </a>
-            </div>
-          </li>
+          {projects.map(({ node }) => {
+            const { logo, slug } = node;
+
+            return (
+              <li className="slider__slide">
+                <div className="slider__image-wrapper">
+                  {logo.sizes.src !== null && (
+                    <Img
+                      alt={logo.description ? logo.description : logo.title}
+                      sizes={logo.sizes}
+                      className="slider__image"
+                    />
+                  )}
+                  {logo.file.contentType.includes("svg") && (
+                    <img
+                      alt={logo.description ? logo.description : logo.title}
+                      src={logo.file.url}
+                      className="slider__image"
+                    />
+                  )}
+                  <a href={`/project/${slug}`} className="slider__link">
+                    <img src={infoImg} alt="i" className="slider__info" />
+                  </a>
+                </div>
+              </li>
+            );
+          })}
         </SlickSlider>
         <img
           className="projects__visual visual"
