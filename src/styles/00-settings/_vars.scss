@@ -33,7 +33,14 @@ $font-family-base: "Open Sans", sans-serif !default;
 $font-weight-base: 600; // semi-bold
 $line-height-base: 1.5;
 
-$font-family-heading: "Reznor", sans-serif, $font-family-base !default;
+@font-face {
+  font-family: "Reznor Broken";
+  src: url("../../fonts/reznor-broken.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$font-family-heading: "Reznor Broken", sans-serif, $font-family-base !default;
 $font-weight-heading: regular;
 $line-height-heading: 1;
 
