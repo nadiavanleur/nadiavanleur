@@ -23,7 +23,8 @@ class RootIndex extends React.Component {
     const projects = {
       title: get(this, "props.data.contentfulProjects.title"),
       visual: get(this, "props.data.contentfulProjects.visual"),
-      projects: get(this, "props.data.allContentfulProject.edges")
+      projects: get(this, "props.data.allContentfulProject.edges"),
+      icon: get(this, "props.data.info")
     };
 
     const skills = {
@@ -112,6 +113,18 @@ export const pageQuery = graphql`
         sizes(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
           ...GatsbyContentfulSizes_withWebp
         }
+      }
+    }
+    info: contentfulAsset(title: { eq: "info" }) {
+      title
+      description
+      file {
+        url
+        fileName
+        contentType
+      }
+      sizes(maxWidth: 1180, background: "rgb:000000") {
+        ...GatsbyContentfulSizes_withWebp
       }
     }
     contentfulSkills {

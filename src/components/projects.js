@@ -4,12 +4,7 @@ import get from "lodash/get";
 
 import SlickSlider from "../components/slider";
 
-export default ({ projects, title, visual }) => {
-  console.log(projects);
-
-  const assetsFolder = "/assets/";
-  const infoImg = "/assets/info.svg";
-
+export default ({ projects, title, visual, icon }) => {
   return (
     <section className="projects page__section" id="projects">
       <div className="wrapper-inner projects__wrapper-inner">
@@ -36,7 +31,20 @@ export default ({ projects, title, visual }) => {
                     />
                   )}
                   <a href={`/project/${slug}`} className="slider__link">
-                    <img src={infoImg} alt="i" className="slider__info" />
+                    {icon && icon.sizes.src !== null && (
+                      <Img
+                        alt={icon.description ? icon.description : icon.title}
+                        sizes={icon.sizes}
+                        className="slider__info"
+                      />
+                    )}
+                    {icon && icon.file.contentType.includes("svg") && (
+                      <img
+                        alt={icon.description ? icon.description : icon.title}
+                        src={icon.file.url}
+                        className="slider__info"
+                      />
+                    )}
                   </a>
                 </div>
               </li>

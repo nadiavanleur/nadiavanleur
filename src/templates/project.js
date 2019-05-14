@@ -11,6 +11,7 @@ class ProjectTemplate extends React.Component {
     const siteTitle = get(this.props, "data.site.siteMetadata.title");
     const project = get(this.props, "data.contentfulProject");
     const { title, logo, tags, body, footerLink } = project;
+    const icon = get(this.props, "data.close");
 
     function arrayToString(array) {
       let string = "[ ";
@@ -33,7 +34,20 @@ class ProjectTemplate extends React.Component {
           <div className="wrapper-inner project__wrapper-inner">
             <Helmet title={`${title} | ${siteTitle}`} />
             <Link to="/#projects" className="project__close">
-              <img src="/assets/close.svg" className="project__close-img" />
+              {icon && icon.sizes.src !== null && (
+                <Img
+                  alt={icon.description ? icon.description : icon.title}
+                  sizes={icon.sizes}
+                  className="project__close-img"
+                />
+              )}
+              {icon && icon.file.contentType.includes("svg") && (
+                <img
+                  alt={icon.description ? icon.description : icon.title}
+                  src={icon.file.url}
+                  className="project__close-img"
+                />
+              )}
             </Link>
             <h1 className="project__title page__title">{title}</h1>
             {logo && logo.sizes.src !== null && (
@@ -112,6 +126,18 @@ export const pageQuery = graphql`
         sizes(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
           ...GatsbyContentfulSizes_withWebp
         }
+      }
+    }
+    close: contentfulAsset(title: { eq: "close" }) {
+      title
+      description
+      file {
+        url
+        fileName
+        contentType
+      }
+      sizes(maxWidth: 1180, background: "rgb:000000") {
+        ...GatsbyContentfulSizes_withWebp
       }
     }
   }
