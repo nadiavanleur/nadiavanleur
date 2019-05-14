@@ -24,7 +24,7 @@ class RootIndex extends React.Component {
       title: get(this, "props.data.contentfulProjects.title"),
       visual: get(this, "props.data.contentfulProjects.visual"),
       projects: get(this, "props.data.allContentfulProject.edges"),
-      icon: get(this, "props.data.contentfulAsset")
+      icon: get(this, "props.data.infoIcon")
     };
 
     const skills = {
@@ -34,9 +34,16 @@ class RootIndex extends React.Component {
     };
 
     const footer = {
-      links: [{ label: "Bekijk mijn CV", link: "/cv.pdf" }],
+      links: [
+        // { label: "Bekijk mijn CV", link: "/cv.pdf" },
+        {
+          label: "Bekijk mijn CV",
+          link: get(this, "props.data.cvDutch.file.url")
+        }
+      ],
       visual: get(this, "props.data.contentfulFooter.visual")
     };
+    console.log(get(this, "props.data"));
 
     const siteTitle = "Nadia van Leur";
 
@@ -115,7 +122,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    contentfulAsset(title: { eq: "info" }) {
+    infoIcon: contentfulAsset(title: { eq: "info" }) {
       title
       description
       file {
@@ -148,6 +155,11 @@ export const pageQuery = graphql`
         sizes(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
           ...GatsbyContentfulSizes_withWebp
         }
+      }
+    }
+    cvDutch: contentfulAsset(title: { eq: "CV nederlands" }) {
+      file {
+        url
       }
     }
   }

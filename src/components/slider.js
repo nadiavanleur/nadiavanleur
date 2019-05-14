@@ -23,7 +23,7 @@ function NextArrow(props) {
 
 export default ({ children, elementClass }) => {
   const settings = {
-    autoplay: false,
+    autoplay: true,
     centerMode: true,
     centerPadding: "0px",
     className: `slider ${elementClass}`,

@@ -11,7 +11,7 @@ class ProjectTemplate extends React.Component {
     const siteTitle = get(this.props, "data.site.siteMetadata.title");
     const project = get(this.props, "data.contentfulProject");
     const { title, logo, tags, body, footerLink } = project;
-    const icon = get(this.props, "data.contentfulAsset");
+    const icon = get(this.props, "data.closeIcon");
 
     function arrayToString(array) {
       let string = "[ ";
@@ -128,7 +128,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    contentfulAsset(title: { eq: "close" }) {
+    closeIcon: contentfulAsset(title: { eq: "close" }) {
       title
       description
       file {
