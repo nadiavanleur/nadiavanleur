@@ -7,7 +7,7 @@ export default ({ title, body }) => {
       <div className="wrapper-inner about__wrapper-inner">
         {title && <h2 className="about__title page__title">{title}</h2>}
         {body && (
-          <p
+          <div
             className="about__text"
             dangerouslySetInnerHTML={{
               __html: body.childMarkdownRemark.html

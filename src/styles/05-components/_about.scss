@@ -5,4 +5,8 @@
 
 .about__text {
   @include grid-column(12);
+
+  & > * {
+    margin-bottom: $spacing-md;
+  }
 }
