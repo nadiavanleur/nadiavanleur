@@ -1,0 +1,10 @@
+.projects {
+  padding-bottom: 0;
+}
+
+.projects__slider {
+  @include grid-column(12);
+
+  margin-top: $spacing-lg;
+  margin-bottom: $spacing-lg;
+}

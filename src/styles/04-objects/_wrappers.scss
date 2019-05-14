@@ -1,0 +1,6 @@
+.wrapper-inner {
+  @include grid-container;
+
+  max-width: $screen-md;
+  margin: 0 auto;
+}
