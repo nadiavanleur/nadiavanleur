@@ -70,7 +70,6 @@ export const pageQuery = graphql`
           slug
           logo {
             title
-            description
             file {
               url
               fileName
@@ -87,7 +86,6 @@ export const pageQuery = graphql`
       title
       visual {
         title
-        description
         file {
           url
           fileName
@@ -110,7 +108,6 @@ export const pageQuery = graphql`
       title
       visual {
         title
-        description
         file {
           url
           fileName
@@ -123,7 +120,6 @@ export const pageQuery = graphql`
     }
     infoIcon: contentfulAsset(title: { eq: "info" }) {
       title
-      description
       file {
         url
         fileName
@@ -138,14 +134,12 @@ export const pageQuery = graphql`
       skills {
         label
         rating
-        description
       }
       otherSkills
     }
     contentfulFooter {
       visual {
         title
-        description
         file {
           url
           fileName
