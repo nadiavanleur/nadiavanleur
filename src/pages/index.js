@@ -24,7 +24,7 @@ class RootIndex extends React.Component {
       title: get(this, "props.data.contentfulProjects.title"),
       visual: get(this, "props.data.contentfulProjects.visual"),
       projects: get(this, "props.data.allContentfulProject.edges"),
-      icon: get(this, "props.data.info")
+      icon: get(this, "props.data.contentfulAsset")
     };
 
     const skills = {
@@ -115,7 +115,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    info: contentfulAsset(title: { eq: "info" }) {
+    contentfulAsset(title: { eq: "info" }) {
       title
       description
       file {

@@ -1,10 +1,10 @@
 import React from "react";
 import Img from "gatsby-image";
-import get from "lodash/get";
 
 import SlickSlider from "../components/slider";
 
 export default ({ projects, title, visual, icon }) => {
+  console.log(icon);
   return (
     <section className="projects page__section" id="projects">
       <div className="wrapper-inner projects__wrapper-inner">
