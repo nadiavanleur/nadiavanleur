@@ -8,8 +8,6 @@ export default ({ title, visual }) => {
         {title && (
           <h1 className="hero__title">
             {title.split(" ").map(node => {
-              console.log(node);
-
               return <span className="hero__title-span">{node}</span>;
             })}
           </h1>

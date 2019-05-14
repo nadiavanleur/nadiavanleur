@@ -43,7 +43,6 @@ class RootIndex extends React.Component {
       ],
       visual: get(this, "props.data.contentfulFooter.visual")
     };
-    console.log(get(this, "props.data"));
 
     const siteTitle = "Nadia van Leur";
 
