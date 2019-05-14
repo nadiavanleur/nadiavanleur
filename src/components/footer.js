@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 
-export default ({ links }) => {
+export default ({ links, visual }) => {
   return (
     <footer className="footer page__section" id="footer">
       <div className="wrapper-inner footer__wrapper-inner">
@@ -12,11 +12,20 @@ export default ({ links }) => {
             </a>
           );
         })}
-        <img
-          className="footer__visual visual"
-          src="/assets/triangles.svg"
-          alt="triangles"
-        />
+        {visual && visual.sizes.src !== null && (
+          <Img
+            alt={visual.description ? visual.description : visual.title}
+            sizes={visual.sizes}
+            className="footer__visual visual"
+          />
+        )}
+        {visual && visual.file.contentType.includes("svg") && (
+          <img
+            alt={visual.description ? visual.description : visual.title}
+            src={visual.file.url}
+            className="footer__visual visual"
+          />
+        )}
       </div>
     </footer>
   );

@@ -10,21 +10,43 @@ import Footer from "../components/footer";
 
 class RootIndex extends React.Component {
   render() {
-    // const siteTitle = get(this, "props.data.site.siteMetadata.title");
-    // const posts = get(this, "props.data.allContentfulBlogPost.edges");
-    // const [author] = get(this, "props.data.allContentfulPerson.edges");
+    const hero = {
+      title: get(this, "props.data.contentfulFrontPage.title"),
+      visual: get(this, "props.data.contentfulFrontPage.visual")
+    };
+
+    const about = {
+      title: get(this, "props.data.contentfulAbout.title"),
+      body: get(this, "props.data.contentfulAbout.body")
+    };
+
+    const projects = {
+      title: get(this, "props.data.contentfulProjects.title"),
+      visual: get(this, "props.data.contentfulProjects.visual"),
+      projects: get(this, "props.data.allContentfulProject.edges")
+    };
+
+    const skills = {
+      title: get(this, "props.data.contentfulSkills.title"),
+      skills: get(this, "props.data.contentfulSkills.skills"),
+      otherSkills: get(this, "props.data.contentfulSkills.otherSkills")
+    };
+
+    const footer = {
+      links: [{ label: "Bekijk mijn CV", link: "/cv.pdf" }],
+      visual: get(this, "props.data.contentfulFooter.visual")
+    };
+
     const siteTitle = "Nadia van Leur";
 
     return (
       <div>
         <Helmet title={siteTitle} />
-        <Hero />
-        <About />
-        <Projects
-          projects={get(this, "props.data.allContentfulProject.edges")}
-        />
-        <Skills />
-        <Footer links={[{ label: "Bekijk mijn CV", link: "/cv.pdf" }]} />
+        <Hero {...hero} />
+        <About {...about} />
+        <Projects {...projects} />
+        <Skills {...skills} />
+        <Footer {...footer} />
       </div>
     );
   }
@@ -34,7 +56,7 @@ export default RootIndex;
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulProject(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulProject(sort: { fields: [projectDate], order: DESC }) {
       edges {
         node {
           title
@@ -51,6 +73,67 @@ export const pageQuery = graphql`
               ...GatsbyContentfulSizes_withWebp
             }
           }
+        }
+      }
+    }
+    contentfulFrontPage {
+      title
+      visual {
+        title
+        description
+        file {
+          url
+          fileName
+          contentType
+        }
+        sizes(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+          ...GatsbyContentfulSizes_withWebp
+        }
+      }
+    }
+    contentfulAbout {
+      title
+      body {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+    contentfulProjects {
+      title
+      visual {
+        title
+        description
+        file {
+          url
+          fileName
+          contentType
+        }
+        sizes(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+          ...GatsbyContentfulSizes_withWebp
+        }
+      }
+    }
+    contentfulSkills {
+      title
+      skills {
+        label
+        rating
+        description
+      }
+      otherSkills
+    }
+    contentfulFooter {
+      visual {
+        title
+        description
+        file {
+          url
+          fileName
+          contentType
+        }
+        sizes(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+          ...GatsbyContentfulSizes_withWebp
         }
       }
     }

@@ -36,14 +36,14 @@ class ProjectTemplate extends React.Component {
               <img src="/assets/close.svg" className="project__close-img" />
             </Link>
             <h1 className="project__title page__title">{title}</h1>
-            {logo.sizes.src !== null && (
+            {logo && logo.sizes.src !== null && (
               <Img
                 alt={logo.description ? logo.description : logo.title}
                 sizes={logo.sizes}
                 className="project__logo"
               />
             )}
-            {logo.file.contentType.includes("svg") && (
+            {logo && logo.file.contentType.includes("svg") && (
               <div className="project__logo-container">
                 <img
                   alt={logo.description ? logo.description : logo.title}
@@ -61,7 +61,10 @@ class ProjectTemplate extends React.Component {
             />
           </div>
         </section>
-        <Footer links={footerLink} />
+        <Footer
+          links={footerLink}
+          visual={get(this.props, "data.contentfulFooter.visual")}
+        />
       </div>
     );
   }
@@ -95,6 +98,20 @@ export const pageQuery = graphql`
       footerLink {
         label
         link
+      }
+    }
+    contentfulFooter {
+      visual {
+        title
+        description
+        file {
+          url
+          fileName
+          contentType
+        }
+        sizes(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+          ...GatsbyContentfulSizes_withWebp
+        }
       }
     }
   }
