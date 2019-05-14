@@ -6,7 +6,7 @@ export default ({ title, skills, otherSkills }) => {
     let dots = "";
 
     for (let i = 0; i < 10; i++) {
-      if (i <= number) {
+      if (i <= number - 1) {
         dots += "●";
       } else {
         dots += "○";
