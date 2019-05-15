@@ -43,6 +43,10 @@ class RootIndex extends React.Component {
         {
           label: "Bekijk mijn CV",
           link: get(this, "props.data.cvDutch.file.url")
+        },
+        {
+          label: "Stuur een mailtje",
+          link: "mailto:nadiavanleur@gmail.com"
         }
       ],
       visual: get(this, "props.data.contentfulFooter.visual")
