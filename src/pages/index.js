@@ -10,6 +10,11 @@ import Footer from "../components/footer";
 
 class RootIndex extends React.Component {
   render() {
+    const { title: siteTitle, description, siteUrl, keywords } = get(
+      this.props,
+      "data.site.siteMetadata"
+    );
+
     const hero = {
       title: get(this, "props.data.contentfulFrontPage.title"),
       visual: get(this, "props.data.contentfulFrontPage.visual")
@@ -35,7 +40,6 @@ class RootIndex extends React.Component {
 
     const footer = {
       links: [
-        // { label: "Bekijk mijn CV", link: "/cv.pdf" },
         {
           label: "Bekijk mijn CV",
           link: get(this, "props.data.cvDutch.file.url")
@@ -44,11 +48,15 @@ class RootIndex extends React.Component {
       visual: get(this, "props.data.contentfulFooter.visual")
     };
 
-    const siteTitle = "Nadia van Leur";
-
     return (
       <div>
-        <Helmet title={siteTitle} />
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{`${siteTitle}`}</title>
+          <link rel="canonical" href={`${siteUrl}`} />
+          <meta name="keywords" content={`${keywords}`} />
+          <meta name="description" content={`${description}`} />
+        </Helmet>
         <Hero {...hero} />
         <About {...about} />
         <Projects {...projects} />
@@ -63,6 +71,14 @@ export default RootIndex;
 
 export const pageQuery = graphql`
   query HomeQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+        keywords
+      }
+    }
     allContentfulProject(sort: { fields: [projectDate], order: DESC }) {
       edges {
         node {

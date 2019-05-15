@@ -8,9 +8,12 @@ import Footer from "../components/footer";
 
 class ProjectTemplate extends React.Component {
   render() {
-    const siteTitle = get(this.props, "data.site.siteMetadata.title");
+    const { title: siteTitle, description, siteUrl, keywords } = get(
+      this.props,
+      "data.site.siteMetadata"
+    );
     const project = get(this.props, "data.contentfulProject");
-    const { title, logo, tags, body, footerLink } = project;
+    const { title, logo, tags, body, footerLink, slug } = project;
     const icon = get(this.props, "data.closeIcon");
 
     function arrayToString(array) {
@@ -32,7 +35,22 @@ class ProjectTemplate extends React.Component {
       <div>
         <section className="page__section project">
           <div className="wrapper-inner project__wrapper-inner">
-            <Helmet title={`${title} | ${siteTitle}`} />
+            <Helmet>
+              <meta charSet="utf-8" />
+              <title>{`${title} | ${siteTitle}`}</title>
+              <link rel="canonical" href={`${siteUrl}/project/${slug}`} />
+              <meta
+                name="keywords"
+                content={`${tags.toString()}, ${keywords}`}
+              />
+              <meta
+                name="description"
+                content={`${
+                  body.childMarkdownRemark.internal.content
+                } \n \n --- \n \n${description}`}
+              />
+            </Helmet>
+
             <Link to="/#projects" className="project__close">
               {icon && icon.sizes.src !== null && (
                 <Img
@@ -88,7 +106,16 @@ export default ProjectTemplate;
 
 export const pageQuery = graphql`
   query ProjectBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+        keywords
+      }
+    }
     contentfulProject(slug: { eq: $slug }) {
+      slug
       publishDate(formatString: "MMMM Do, YYYY")
       title
       logo {
@@ -107,6 +134,9 @@ export const pageQuery = graphql`
       body {
         childMarkdownRemark {
           html
+          internal {
+            content
+          }
         }
       }
       footerLink {

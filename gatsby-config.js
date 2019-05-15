@@ -26,6 +26,17 @@ if (!spaceId || !accessToken) {
 }
 
 module.exports = {
+  siteMetadata: {
+    title: `Nadia van Leur`,
+    description: `Hoi! Mijn naam is Nadia, frontend developer. Ik kom uit Kerk-Avezaath, maar sinds een tijdje woon ik in Breda, erg leuke stad.
+
+    In mijn vrije tijd doe ik onder andere aan drummen, gitaar spelen, mixtapes maken, tuinieren en ook ijshockey vind ik gaaf. Ik verzamel analoge camera’s, die met rolletjes, en neem ze soms mee op pad om foto’s te maken. 
+    
+    Binnen mijn opleiding heb ik me gespecialiseerd in frontend development en web design. Verder ben ik gemotiveerd, creatief en houd ik wel van een uitdaging.`,
+    author: `Nadia van Leur`,
+    siteUrl: `https://nadiavanleur.nl`,
+    keywords: `kerk-avezaath, frontend, development, breda, nederland, netherlands`
+  },
   pathPrefix: "/gatsby-contentful-starter",
   plugins: [
     "gatsby-transformer-remark",
