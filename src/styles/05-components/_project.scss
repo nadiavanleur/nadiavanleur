@@ -40,7 +40,7 @@
 
 .project__tags {
   @include grid-column(12);
-  @include font-size($font-size-h3);
+  @include font-size($font-size-h4);
 
   margin-bottom: $spacing-md;
 }

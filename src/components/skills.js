@@ -1,35 +1,8 @@
 import React from "react";
-import Img from "gatsby-image";
+import generateWords from "../helpers/generateWords";
+import generateDots from "../helpers/generateDots";
 
 export default ({ title, skills, otherSkills }) => {
-  function generateDots(number) {
-    let dots = "";
-
-    for (let i = 0; i < 10; i++) {
-      if (i <= number - 1) {
-        dots += "●";
-      } else {
-        dots += "○";
-      }
-    }
-
-    return dots;
-  }
-
-  function generateWords(array) {
-    let string = "";
-
-    for (let i = 0; i < array.length; i++) {
-      string += array[i];
-
-      if (i < array.length - 1) {
-        string += " ● ";
-      }
-    }
-
-    return string;
-  }
-
   return (
     <section className="skills page__section" id="skills">
       <div className="wrapper-inner skills__wrapper-inner">

@@ -42,7 +42,8 @@ blockquote {
 }
 
 blockquote {
-  @include font-size($font-size-h3);
+  @include font-size($font-size-h4);
+  font-style: italic;
 }
 
 p,

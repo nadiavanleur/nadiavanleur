@@ -3,6 +3,7 @@
   background-color: $color-blue;
   background-blend-mode: multiply;
   color: $color-white;
+  text-shadow: $text-shadow;
   padding-top: $spacing-lg * 0.75;
 }
 
@@ -23,13 +24,13 @@
 }
 
 .skills__item-title {
-  @include font-size($font-size-h3);
+  @include font-size($font-size-p);
 
   margin-bottom: $spacing-sm;
 }
 
 .skills__rating {
-  @include font-size($font-size-h3 * 1.15);
+  @include font-size($font-size-p * 1.15);
 
   float: right;
   text-align: right;
@@ -38,7 +39,7 @@
 
 .skills__text {
   @include grid-column(12);
-  @include font-size($font-size-h3);
+  @include font-size($font-size-p);
 
   font-family: $font-family-heading;
   font-weight: $font-weight-heading;

@@ -96,7 +96,7 @@ $mq-breakpoints: (
   sm: 30em,
   md: 40,
   lg: 60em,
-  xl: 80em
+  xl: 80em,
 );
 
 /**
@@ -115,3 +115,5 @@ $all-hovers: "&:hover, &:focus" !default;
 $border-base: 2px solid $color-black;
 $border-small: 1px solid $color-black;
 $border-radius-base: 8px;
+
+$text-shadow: 0 0 2px $color-gray-dark;

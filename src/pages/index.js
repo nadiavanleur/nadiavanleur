@@ -5,51 +5,54 @@ import Helmet from "react-helmet";
 import Hero from "../components/hero";
 import About from "../components/about";
 import Projects from "../components/projects";
+import ProjectsSlider from "../components/projects_slider";
 import Skills from "../components/skills";
 import Footer from "../components/footer";
 
 class RootIndex extends React.Component {
   render() {
-    const { title: siteTitle, description, siteUrl, keywords } = get(
-      this.props,
-      "data.site.siteMetadata"
-    );
+    const {
+      title: siteTitle,
+      description,
+      siteUrl,
+      keywords,
+    } = get(this.props, "data.site.siteMetadata");
 
     const hero = {
       title: get(this, "props.data.contentfulFrontPage.title"),
-      visual: get(this, "props.data.contentfulFrontPage.visual")
+      visual: get(this, "props.data.contentfulFrontPage.visual"),
     };
 
     const about = {
       title: get(this, "props.data.contentfulAbout.title"),
-      body: get(this, "props.data.contentfulAbout.body")
+      body: get(this, "props.data.contentfulAbout.body"),
     };
 
     const projects = {
       title: get(this, "props.data.contentfulProjects.title"),
       visual: get(this, "props.data.contentfulProjects.visual"),
       projects: get(this, "props.data.allContentfulProject.edges"),
-      icon: get(this, "props.data.infoIcon")
+      icon: get(this, "props.data.infoIcon"),
     };
 
     const skills = {
       title: get(this, "props.data.contentfulSkills.title"),
       skills: get(this, "props.data.contentfulSkills.skills"),
-      otherSkills: get(this, "props.data.contentfulSkills.otherSkills")
+      otherSkills: get(this, "props.data.contentfulSkills.otherSkills"),
     };
 
     const footer = {
       links: [
         {
           label: "Bekijk mijn CV",
-          link: get(this, "props.data.cvDutch.file.url")
+          link: get(this, "props.data.cvDutch.file.url"),
         },
         {
           label: "Stuur een mailtje",
-          link: "mailto:nadiavanleur@gmail.com"
-        }
+          link: "mailto:nadiavanleur@gmail.com",
+        },
       ],
-      visual: get(this, "props.data.contentfulFooter.visual")
+      visual: get(this, "props.data.contentfulFooter.visual"),
     };
 
     return (
@@ -62,9 +65,10 @@ class RootIndex extends React.Component {
           <meta name="description" content={`${description}`} />
         </Helmet>
         <Hero {...hero} />
-        <About {...about} />
-        <Projects {...projects} />
+        <About {...{ ...about, ...footer }} />
         <Skills {...skills} />
+        <Projects {...projects} />
+        {/* <ProjectsSlider {...projects} /> */}
         <Footer {...footer} />
       </div>
     );
@@ -99,6 +103,21 @@ export const pageQuery = graphql`
               ...GatsbyContentfulSizes_withWebp
             }
           }
+          tags
+          body {
+            childMarkdownRemark {
+              html
+              internal {
+                content
+              }
+            }
+          }
+          footerLink {
+            label
+            link
+          }
+          textColor
+          backgroundColor
         }
       }
     }

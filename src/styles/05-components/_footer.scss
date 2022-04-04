@@ -2,6 +2,11 @@
   padding-bottom: 0;
 }
 
+.footer__text {
+  @include grid-column(12);
+  margin-bottom: $spacing-lg;
+}
+
 .footer__visual {
   margin-top: -$spacing-md;
 }

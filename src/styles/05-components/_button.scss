@@ -24,17 +24,19 @@
   cursor: pointer; /* [3] */
   background-color: $color-brand-primary;
   color: $color-white;
+  text-shadow: $text-shadow;
 
   #{$all-hovers} {
     color: $color-brand-primary;
     background-color: $color-white;
     border-color: currentColor;
+    text-shadow: none;
   }
 }
 
 .button {
   @include grid-column(1);
-  @include font-size($font-size-h3);
+  @include font-size($font-size-h4);
 
   width: auto;
   margin-bottom: $spacing-md;
@@ -45,9 +47,14 @@
 
   &::after {
     content: "➞";
-    @include font-size($font-size-h3 * 1.15);
+    @include font-size($font-size-h4 * 1.15);
     display: inline-block;
     margin-left: $spacing-md;
     transform: translateY(0.2rem);
   }
+}
+
+.button--white {
+  color: $color-white;
+  text-shadow: $text-shadow;
 }

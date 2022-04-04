@@ -1,70 +1,72 @@
 import React from "react";
 import Img from "gatsby-image";
-
-import SlickSlider from "../components/slider";
+import generateWords from "../helpers/generateWords";
 
 export default ({ projects, title, visual, icon }) => {
   return (
     <section className="projects page__section" id="projects">
       <div className="wrapper-inner projects__wrapper-inner">
         {title && <h2 className="projects__title page__title">{title}</h2>}
-        <SlickSlider elementClass="projects__slider">
-          {projects.map(({ node }) => {
-            const { logo, slug } = node;
+      </div>
 
-            return (
-              <li className="slider__slide">
-                <div className="slider__image-wrapper">
-                  {logo && logo.sizes.src !== null && (
-                    <Img
-                      alt={logo.description ? logo.description : logo.title}
-                      sizes={logo.sizes}
-                      className="slider__image"
-                    />
-                  )}
+      <ul className="projects__list">
+        {projects.map(({ node }) => {
+          const {
+            logo,
+            slug,
+            footerLink,
+            body,
+            tags,
+            title,
+            backgroundColor,
+            textColor,
+          } = node;
+          console.dir(node);
+
+          return (
+            <li
+              className={`projects__item${
+                textColor === "light" ? " projects__item--text-light" : ""
+              }`}
+              style={{ background: backgroundColor || "transparent" }}
+              id={`project-${slug}`}
+            >
+              <div className="wrapper-inner">
+                <div className="projects__item-inner">
+                  <h3 className="projects__item-title">{title}</h3>
                   {logo && logo.file.contentType.includes("svg") && (
                     <img
                       alt={logo.description ? logo.description : logo.title}
                       src={logo.file.url}
-                      className="slider__image"
+                      className="projects__item-image"
                     />
                   )}
-                  <a href={`/project/${slug}`} className="slider__link">
-                    {icon && icon.sizes.src !== null && (
-                      <Img
-                        alt={icon.description ? icon.description : icon.title}
-                        sizes={icon.sizes}
-                        className="slider__info"
-                      />
-                    )}
-                    {icon && icon.file.contentType.includes("svg") && (
-                      <img
-                        alt={icon.description ? icon.description : icon.title}
-                        src={icon.file.url}
-                        className="slider__info"
-                      />
-                    )}
-                  </a>
+                  {!!body && (
+                    <div
+                      className="projects__item-content"
+                      dangerouslySetInnerHTML={{
+                        __html: body.childMarkdownRemark.html,
+                      }}
+                    />
+                  )}
+                  <p className="projects__item-tags">{generateWords(tags)}</p>
                 </div>
-              </li>
-            );
-          })}
-        </SlickSlider>
-        {visual && visual.sizes.src !== null && (
-          <Img
-            alt={visual.description ? visual.description : visual.title}
-            sizes={visual.sizes}
-            className="projects__visual visual"
-          />
-        )}
-        {visual && visual.file.contentType.includes("svg") && (
-          <img
-            alt={visual.description ? visual.description : visual.title}
-            src={visual.file.url}
-            className="projects__visual visual"
-          />
-        )}
-      </div>
+                {footerLink &&
+                  !!footerLink.length &&
+                  footerLink.map((link) => (
+                    <a
+                      href={link.link}
+                      className="projects__item-link button"
+                      target="_blank"
+                    >
+                      {link.label || "Details"}
+                    </a>
+                  ))}
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 };
