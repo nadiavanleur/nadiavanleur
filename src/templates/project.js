@@ -8,10 +8,12 @@ import Footer from "../components/footer";
 
 class ProjectTemplate extends React.Component {
   render() {
-    const { title: siteTitle, description, siteUrl, keywords } = get(
-      this.props,
-      "data.site.siteMetadata"
-    );
+    const {
+      title: siteTitle,
+      description,
+      siteUrl,
+      keywords,
+    } = get(this.props, "data.site.siteMetadata");
     const project = get(this.props, "data.contentfulProject");
     const { title, logo, tags, body, footerLink, slug } = project;
     const icon = get(this.props, "data.closeIcon");
@@ -43,12 +45,12 @@ class ProjectTemplate extends React.Component {
                 name="keywords"
                 content={`${tags.toString()}, ${keywords}`}
               />
-              <meta
-                name="description"
-                content={`${
-                  body.childMarkdownRemark.internal.content
-                } \n \n --- \n \n${description}`}
-              />
+              {!!body && (
+                <meta
+                  name="description"
+                  content={`${body.childMarkdownRemark.internal.content} \n \n --- \n \n${description}`}
+                />
+              )}
             </Helmet>
 
             <Link to="/#projects" className="project__close">
@@ -85,12 +87,14 @@ class ProjectTemplate extends React.Component {
               </div>
             )}
             <h2 className="project__tags">{arrayToString(tags)}</h2>
-            <div
-              className="project__content"
-              dangerouslySetInnerHTML={{
-                __html: body.childMarkdownRemark.html
-              }}
-            />
+            {!!body && (
+              <div
+                className="project__content"
+                dangerouslySetInnerHTML={{
+                  __html: body.childMarkdownRemark.html,
+                }}
+              />
+            )}
           </div>
         </section>
         <Footer
