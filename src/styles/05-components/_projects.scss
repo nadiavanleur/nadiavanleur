@@ -22,9 +22,8 @@
 .projects__item-image {
   display: block;
   margin: $spacing-lg auto;
-  max-height: 150px;
-  min-height: 75px;
-  max-width: 100%;
+  height: 150px;
+  max-width: calc(100% - #{$spacing-xl * 2});
   object-fit: contain;
 }
 
