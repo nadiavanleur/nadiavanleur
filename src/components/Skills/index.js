@@ -1,8 +1,11 @@
 import React from "react";
-import generateWords from "../helpers/generateWords";
-import generateDots from "../helpers/generateDots";
+import generateWords from "../../helpers/generateWords";
+import generateDots from "../../helpers/generateDots";
+import useSkills from "../../queries/skills.graphql";
 
-export default ({ title, skills, otherSkills }) => {
+const Skills = () => {
+  const { title, skills, otherSkills } = useSkills();
+
   return (
     <section className="skills page__section" id="skills">
       <div className="wrapper-inner skills__wrapper-inner">
@@ -10,7 +13,7 @@ export default ({ title, skills, otherSkills }) => {
         <ul className="skills__list">
           {skills.map(({ label, rating, description }) => {
             return (
-              <li className="skills__item">
+              <li className="skills__item" key={label}>
                 {label && (
                   <h3 className="skills__item-title">
                     {label}
@@ -37,3 +40,5 @@ export default ({ title, skills, otherSkills }) => {
     </section>
   );
 };
+
+export default Skills;

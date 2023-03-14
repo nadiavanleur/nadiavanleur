@@ -1,8 +1,11 @@
 import React from "react";
-import Img from "gatsby-image";
-import generateWords from "../helpers/generateWords";
+// import Img from "gatsby-image";
+import generateWords from "../../helpers/generateWords";
+import useProjects from "../../queries/projects.graphql";
 
-export default ({ projects, title, visual, icon }) => {
+const Projects = () => {
+  const { projects, title } = useProjects();
+
   return (
     <section className="projects page__section" id="projects">
       <div className="wrapper-inner projects__wrapper-inner">
@@ -21,7 +24,6 @@ export default ({ projects, title, visual, icon }) => {
             backgroundColor,
             textColor,
           } = node;
-          console.dir(node);
 
           return (
             <li
@@ -30,6 +32,7 @@ export default ({ projects, title, visual, icon }) => {
               }`}
               style={{ background: backgroundColor || "transparent" }}
               id={`project-${slug}`}
+              key={`project-${slug}`}
             >
               <div className="wrapper-inner">
                 <div className="projects__item-inner">
@@ -56,8 +59,10 @@ export default ({ projects, title, visual, icon }) => {
                   footerLink.map((link) => (
                     <a
                       href={link.link}
+                      key={link.link}
                       className="projects__item-link button"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       {link.label || "Details"}
                     </a>
@@ -70,3 +75,5 @@ export default ({ projects, title, visual, icon }) => {
     </section>
   );
 };
+
+export default Projects;

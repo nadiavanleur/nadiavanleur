@@ -30,8 +30,8 @@ module.exports = {
     title: `Nadia van Leur`,
     description: `Hoi! Mijn naam is Nadia, frontend developer. Ik kom uit Kerk-Avezaath, maar sinds een tijdje woon ik in Breda, erg leuke stad.
 
-    In mijn vrije tijd doe ik onder andere aan drummen, gitaar spelen, mixtapes maken, tuinieren en ook ijshockey vind ik gaaf. Ik verzamel analoge camera’s, die met rolletjes, en neem ze soms mee op pad om foto’s te maken. 
-    
+    In mijn vrije tijd doe ik onder andere aan drummen, gitaar spelen, mixtapes maken, tuinieren en ook ijshockey vind ik gaaf. Ik verzamel analoge camera’s, die met rolletjes, en neem ze soms mee op pad om foto’s te maken.
+
     Binnen mijn opleiding heb ik me gespecialiseerd in frontend development en web design. Verder ben ik gemotiveerd, creatief en houd ik wel van een uitdaging.`,
     author: `Nadia van Leur <nadiavanleur@gmail.com>`,
     siteUrl: `https://nadiavanleur.nl`,
@@ -39,10 +39,26 @@ module.exports = {
   },
   pathPrefix: "/gatsby-contentful-starter",
   plugins: [
-    "gatsby-transformer-remark",
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 1024,
+            },
+          },
+        ],
+      },
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     `gatsby-plugin-sass`,
+    `gatsby-plugin-image`,
     {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig

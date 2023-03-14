@@ -1,7 +1,10 @@
 import React from "react";
-import Img from "gatsby-image";
+import useFooter from "../../queries/footer.graphql";
+// import Img from "gatsby-image";
 
-export default ({ links, visual }) => {
+const Footer = () => {
+  const { links, visual } = useFooter();
+
   return (
     <footer className="footer page__section" id="footer">
       <div className="wrapper-inner footer__wrapper-inner">
@@ -9,18 +12,18 @@ export default ({ links, visual }) => {
         <p className="footer__text">Zijn er nog vragen?</p>
         {links.map(({ label, link }) => {
           return (
-            <a href={link} target="_blank" className="footer__link button">
+            <a href={link} key={link} target="_blank" rel="noreferrer" className="footer__link button">
               {label}
             </a>
           );
         })}
-        {visual && visual.sizes.src !== null && (
+        {/* {visual && visual.sizes.src !== null && (
           <Img
             alt={visual.description ? visual.description : visual.title}
             sizes={visual.sizes}
             className="footer__visual visual"
           />
-        )}
+        )} @TODO */}
         {visual && visual.file.contentType.includes("svg") && (
           <img
             alt={visual.description ? visual.description : visual.title}
@@ -32,3 +35,5 @@ export default ({ links, visual }) => {
     </footer>
   );
 };
+
+export default Footer;

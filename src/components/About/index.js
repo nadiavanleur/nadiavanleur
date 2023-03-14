@@ -1,7 +1,12 @@
 import React from "react";
-import Img from "gatsby-image";
+// import Img from "gatsby-image";
+import useAbout from "../../queries/about.graphql";
+import useFooter from "../../queries/footer.graphql";
 
-export default ({ title, body, links }) => {
+const About = () => {
+  const { title, body } = useAbout();
+  const { links } = useFooter();
+
   return (
     <section className="about page__section" id="about">
       <div className="wrapper-inner about__wrapper-inner">
@@ -16,7 +21,7 @@ export default ({ title, body, links }) => {
         )}
         {links.map(({ label, link }) => {
           return (
-            <a href={link} target="_blank" className="button button--white">
+            <a href={link} key={link} target="_blank" rel="noreferrer" className="button button--white">
               {label}
             </a>
           );
@@ -25,3 +30,5 @@ export default ({ title, body, links }) => {
     </section>
   );
 };
+
+export default About;

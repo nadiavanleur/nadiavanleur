@@ -1,37 +1,40 @@
 {
-  "name": "contentful-starter-gatsby-blog",
-  "description": "Contentful Gatsby Starter Blog",
+  "name": "nadiavanleur",
+  "description": "Nadia van Leur's portfolio",
   "private": true,
-  "version": "0.0.1",
-  "author": "Contentful <opensource@contentful.com>",
+  "version": "1.0.0",
+  "author": "Nadia van Leur <contact@nadiavanleur.nl>",
   "bugs": {
-    "url": "https://github.com/contentful/starter-gatsby-blog/issues"
+    "url": "https://github.com/nadiavanleur/nadiavanleur/issues"
   },
   "dependencies": {
-    "gatsby": "^1.9.277",
-    "gatsby-image": "^1.0.55",
-    "gatsby-link": "^1.6.46",
-    "gatsby-plugin-react-helmet": "^1.0.8",
-    "gatsby-plugin-sass": "^1.0.26",
-    "gatsby-plugin-sharp": "^1.6.46",
-    "gatsby-source-contentful": "^1.3.54",
-    "gatsby-transformer-remark": "^1.7.44",
-    "lodash": "^4.17.11",
-    "node-sass": "^4.12.0",
-    "react-slick": "^0.24.0",
+    "gatsby": "^5.7.0",
+    "gatsby-image": "^3.11.0",
+    "gatsby-link": "^5.7.0",
+    "gatsby-plugin-image": "^3.7.0",
+    "gatsby-plugin-react-helmet": "^6.7.0",
+    "gatsby-plugin-sass": "^6.7.0",
+    "gatsby-plugin-sharp": "^5.7.0",
+    "gatsby-remark-images-contentful": "^6.7.0",
+    "gatsby-source-contentful": "^8.7.0",
+    "gatsby-transformer-remark": "^6.7.0",
+    "lodash": "^4.17.21",
+    "node-sass": "^8.0.0",
+    "react-helmet": "^6.1.0",
+    "react-slick": "^0.29.0",
     "supple": "^2.1.1"
   },
-  "homepage": "https://github.com/contentful/starter-gatsby-blog#readme",
+  "homepage": "https://github.com/nadiavanleur/nadiavanleur#readme",
   "keywords": [
     "gatsby",
     "contentful",
     "starter"
   ],
-  "license": "MIT",
+  "license": "ISC",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contentful/starter-gatsby-blog.git"
+    "url": "git+https://github.com/nadiavanleur/nadiavanleur.git"
   },
   "scripts": {
     "dev": "gatsby develop",

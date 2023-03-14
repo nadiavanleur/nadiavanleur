@@ -1,8 +1,9 @@
 import React from "react";
 import Helmet from "react-helmet";
 import get from "lodash/get";
-import Img from "gatsby-image";
-import Link from "gatsby-link";
+// import Img from "gatsby-image";
+import { Link } from "gatsby-link";
+import { graphql } from 'gatsby'
 
 import Footer from "../components/footer";
 
@@ -54,13 +55,13 @@ class ProjectTemplate extends React.Component {
             </Helmet>
 
             <Link to="/#projects" className="project__close">
-              {icon && icon.sizes.src !== null && (
+              {/* {icon && icon.sizes.src !== null && (
                 <Img
                   alt={icon.description ? icon.description : icon.title}
                   sizes={icon.sizes}
                   className="project__close-img"
                 />
-              )}
+              )} @TODO */}
               {icon && icon.file.contentType.includes("svg") && (
                 <img
                   alt={icon.description ? icon.description : icon.title}
@@ -70,13 +71,13 @@ class ProjectTemplate extends React.Component {
               )}
             </Link>
             <h1 className="project__title page__title">{title}</h1>
-            {logo && logo.sizes.src !== null && (
+            {/* {logo && logo.sizes.src !== null && (
               <Img
                 alt={logo.description ? logo.description : logo.title}
                 sizes={logo.sizes}
                 className="project__logo"
               />
-            )}
+            )} @TODO */}
             {logo && logo.file.contentType.includes("svg") && (
               <div className="project__logo-container">
                 <img
@@ -130,9 +131,6 @@ export const pageQuery = graphql`
           fileName
           contentType
         }
-        sizes(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulSizes_withWebp
-        }
       }
       tags
       body {
@@ -157,9 +155,6 @@ export const pageQuery = graphql`
           fileName
           contentType
         }
-        sizes(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-          ...GatsbyContentfulSizes_withWebp
-        }
       }
     }
     closeIcon: contentfulAsset(title: { eq: "close" }) {
@@ -169,9 +164,6 @@ export const pageQuery = graphql`
         url
         fileName
         contentType
-      }
-      sizes(maxWidth: 1180, background: "rgb:000000") {
-        ...GatsbyContentfulSizes_withWebp
       }
     }
   }

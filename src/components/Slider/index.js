@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 
-function PrevArrow(props) {
+const PrevArrow = (props) => {
   const { className, onClick } = props;
   return (
     <button
@@ -11,7 +11,7 @@ function PrevArrow(props) {
   );
 }
 
-function NextArrow(props) {
+const NextArrow = (props) => {
   const { className, onClick } = props;
   return (
     <button
@@ -21,7 +21,7 @@ function NextArrow(props) {
   );
 }
 
-export default ({ children, elementClass }) => {
+const Slider = ({ children, elementClass }) => {
   const settings = {
     autoplay: true,
     centerMode: true,
@@ -36,3 +36,5 @@ export default ({ children, elementClass }) => {
 
   return <Slider {...settings}>{children}</Slider>;
 };
+
+export default Slider;
