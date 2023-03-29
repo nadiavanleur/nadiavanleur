@@ -7,7 +7,7 @@ const StartMenu = () => {
 
   return (
     <div className={style.startMenu}>
-      <Button label="Start" onClick={() => setActive(!active)} icon="windows" />
+      <Button label="Start" onClick={() => setActive(!active)} icon="windows" extraClasses={style.startMenu__button} />
     </div>
   )
 }
