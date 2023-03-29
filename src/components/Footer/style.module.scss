@@ -1,0 +1,8 @@
+@import '../../assets/styles/mixins/bevel.scss';
+
+.footer {
+  @include bevel;
+  background: var(--color-gray);
+  min-height: 2rem;
+  width: 100%;
+}

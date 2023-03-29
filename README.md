@@ -1,8 +1,4 @@
-# Contentful Gatsby Starter Blog
-
-Create a [Gatsby](http://gatsbyjs.com/) blog powered by [Contentful](https://www.contentful.com). This is a simplified version of the [Gatsby Contentful Starter](https://github.com/contentful-userland/gatsby-contentful-starter) which is maintained by our Community.
-
-![The index page of the starter blog](https://rawgit.com/contentful-userland/gatsby-contentful-starter/master/screenshot.jpg "The index page of the starter blog")
+# Portfolio site with Contentful and Gatsby
 
 Static sites are scalable, secure and have very little required maintenance. They come with a drawback though. Not everybody feels good editing files, building a project and uploading it somewhere. This is where Contentful comes into play.
 
@@ -10,9 +6,9 @@ With Contentful and Gatsby you can connect your favorite static site generator w
 
 ## Features
 
-* Simple content model and structure. Easy to adjust to your needs.
-* Use the [synchronization feature](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/synchronization) of our [Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/).
-* Responsive/adaptive images via [gatsby-image](https://www.gatsbyjs.org/packages/gatsby-image/) and our [Images API](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/synchronization/initial-synchronization-of-entries-of-a-specific-content-type).
+- Simple content model and structure. Easy to adjust to your needs.
+- Use the [synchronization feature](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/synchronization) of our [Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/).
+- Responsive/adaptive images via [gatsby-image](https://www.gatsbyjs.org/packages/gatsby-image/) and our [Images API](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/synchronization/initial-synchronization-of-entries-of-a-specific-content-type).
 
 ## Getting started
 
@@ -41,3 +37,10 @@ See the [official Contentful getting started guide](https://www.contentful.com/d
 Feel free to open pull requests to fix bugs. If you want to add features, please have a look at the [original version](https://github.com/contentful-userland/gatsby-contentful-starter). It is always open to contributions and pull requests.
 
 You can learn more about how Contentful userland is organized by visiting [our about repository](https://github.com/contentful-userland/about).
+
+## Sources
+
+Windows 98 icons: https://win98icons.alexmeub.com/
+Windows 98 emulator: https://copy.sh/v86/?profile=windows98
+Colors: https://networkencyclopedia.com/wp-content/uploads/2019/10/windows-98-desktop.png?ezimgfmt=ng:webp/ngcb2
+Sources: https://github.com/zabdalimov/win98

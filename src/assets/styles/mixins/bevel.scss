@@ -1,0 +1,31 @@
+@mixin bevel {
+  border: 2px solid;
+  border-left-color: var(--color-white);
+  border-top-color: var(--color-white);
+  border-right-color: var(--color-gray-dark);
+  border-bottom-color: var(--color-gray-dark);
+}
+
+@mixin bevel-deep {
+  border: 2px solid;
+  border-left-color: var(--color-white);
+  border-top-color: var(--color-white);
+  border-right-color: var(--color-black);
+  border-bottom-color: var(--color-black);
+}
+
+@mixin bevel-inset {
+  border: 1px solid;
+  border-left-color: var(--color-gray-dark);
+  border-top-color: var(--color-gray-dark);
+  border-right-color: var(--color-white);
+  border-bottom-color: var(--color-white);
+}
+
+@mixin bevel-inset-deep {
+  border: 2px solid;
+  border-left-color: var(--color-black);
+  border-top-color: var(--color-black);
+  border-right-color: var(--color-white);
+  border-bottom-color: var(--color-white);
+}

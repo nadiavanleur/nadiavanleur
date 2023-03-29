@@ -1,3 +1,0 @@
-@function grid-column-width($columns) {
-  @return calc(#{_neat-column-width($neat-grid, $columns)});
-}

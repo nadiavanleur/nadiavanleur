@@ -59,6 +59,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-svgr`,
     {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig

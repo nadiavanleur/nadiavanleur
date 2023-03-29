@@ -1,6 +1,6 @@
 import React from "react";
 import useFrontPage from "../../queries/frontPage.graphql";
-import splitString from "../_helpers/splitString";
+import splitString from "../../helpers/splitString";
 import * as style from "./index.module.scss";
 // import Img from "gatsby-image";
 

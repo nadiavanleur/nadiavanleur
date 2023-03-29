@@ -1,20 +1,16 @@
 import React from "react";
-import Hero from "../components/hero";
-import About from "../components/about";
-import Projects from "../components/projects";
-import Skills from "../components/skills";
-import Footer from "../components/footer";
+import Layout from "../components/Layout";
 import useMetadata from "../queries/metadata.graphql";
 
 const Index = () => {
   return (
-    <>
-      <Hero />
+    <Layout>
+      {/* <Hero />
       <About />
       <Skills />
       <Projects />
-      <Footer />
-    </>
+      <Footer /> */}
+    </Layout>
   )
 }
 

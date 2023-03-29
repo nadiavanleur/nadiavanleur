@@ -8,18 +8,38 @@
     "url": "https://github.com/nadiavanleur/nadiavanleur/issues"
   },
   "dependencies": {
+    "@svgr/babel-plugin-add-jsx-attribute": "^7.0.0",
+    "@svgr/babel-plugin-remove-jsx-attribute": "^7.0.0",
+    "@svgr/babel-plugin-remove-jsx-empty-expression": "^7.0.0",
+    "@svgr/babel-plugin-replace-jsx-attribute-value": "^7.0.0",
+    "@svgr/babel-plugin-svg-dynamic-title": "^7.0.0",
+    "@svgr/babel-plugin-svg-em-dimensions": "^7.0.0",
+    "@svgr/babel-plugin-transform-react-native-svg": "^7.0.0",
+    "@svgr/babel-plugin-transform-svg-component": "^7.0.0",
+    "@svgr/babel-preset": "^7.0.0",
+    "@svgr/core": "^7.0.0",
+    "@svgr/hast-util-to-babel-ast": "^7.0.0",
+    "@svgr/plugin-jsx": "^7.0.0",
+    "@svgr/plugin-svgo": "^7.0.0",
+    "babel-plugin-inline-react-svg": "^2.0.2",
     "gatsby": "^5.7.0",
     "gatsby-image": "^3.11.0",
     "gatsby-link": "^5.7.0",
     "gatsby-plugin-image": "^3.7.0",
     "gatsby-plugin-react-helmet": "^6.7.0",
+    "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-sass": "^6.7.0",
     "gatsby-plugin-sharp": "^5.7.0",
+    "gatsby-plugin-svgr": "^3.0.0-beta.0",
+    "gatsby-plugin-svgr-loader": "^0.1.0",
+    "gatsby-plugin-svgr-svgo": "^2.0.0",
     "gatsby-remark-images-contentful": "^6.7.0",
     "gatsby-source-contentful": "^8.7.0",
+    "gatsby-transformer-inline-svg": "^1.2.0",
     "gatsby-transformer-remark": "^6.7.0",
     "lodash": "^4.17.21",
     "node-sass": "^8.0.0",
+    "normalize-scss": "^7.0.1",
     "react-helmet": "^6.1.0",
     "react-slick": "^0.29.0",
     "supple": "^2.1.1"
@@ -42,5 +62,8 @@
     "heroku-postbuild": "gatsby build",
     "serve": "gatsby serve",
     "setup": "npm install --no-save contentful-import yargs-parser axios chalk && node ./setup.js"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^7.0.0"
   }
 }

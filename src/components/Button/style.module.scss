@@ -1,0 +1,13 @@
+@import '../../assets/styles/mixins/bevel.scss';
+
+.button {
+  @include bevel-deep;
+  cursor: pointer;
+  display: flex;
+  border-radius: 0;
+  gap: var(--spacing-xxs);
+  flex-direction: space-between;
+  align-items: center;
+  padding: var(--spacing-xxxs) var(--spacing-xxs);
+  background: var(--color-gray);
+}

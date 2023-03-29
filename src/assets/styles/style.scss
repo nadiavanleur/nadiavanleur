@@ -1,0 +1,53 @@
+@import '/node_modules/normalize-scss/sass/normalize';
+
+@font-face {
+    font-family: 'Windows';
+    src: local('Windows Regular'), local('Windows'),
+        url('../fonts/Windows.woff2') format('woff2'),
+        url('../fonts/Windows.woff') format('woff'),
+        url('../fonts/Windows.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    // Colors
+    --color-white: #ffffff;
+    --color-gray-light: #dfdfdf;
+    --color-gray: #c0c0c0;
+    --color-gray-dark: #808080;
+    --color-black: #000000;
+    --color-teal: #008080;
+    --color-blue: #010180;
+
+    // Fonts
+    --font-family-base: 'Windows', sans-serif;
+
+    // Font sizes
+
+    // Spacing
+    --spacing-xxxs: 2px;
+    --spacing-xxs: 4px;
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 32px;
+    --spacing-lg: 64px;
+    --spacing-xl: 128px;
+    --spacing-xxl: 256px;
+
+    // Cursors
+    --cursor-pointer: url('../cursors/Cursor_15.gif'), auto;
+    --cursor-default: url('../cursors/arrow.gif'), auto;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family-base);
+}
+
+body {
+    cursor: var(--cursor-default);
+}
