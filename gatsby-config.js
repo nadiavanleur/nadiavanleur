@@ -60,6 +60,8 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
     `gatsby-plugin-svgr`,
+    `gatsby-transformer-inline-svg`,
+    `gatsby-plugin-react-svg`,
     {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig

@@ -1,4 +1,4 @@
-import React, {createElement, FC} from 'react';
+import React, {FC} from 'react';
 import { ReactComponent as WindowsIcon } from '../../../src/assets/icons/windows.svg';
 
 type Props = {
