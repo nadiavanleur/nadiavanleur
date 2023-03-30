@@ -1,8 +1,9 @@
-@import '../../assets/styles/mixins/bevel.scss';
+@import '../../styles/mixins/bevel.scss';
 
 .footer {
   @include bevel;
   background: var(--color-gray);
   min-height: 2rem;
   width: 100%;
+  padding: var(--spacing-xxxs);
 }

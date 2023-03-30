@@ -1,5 +1,5 @@
 @mixin bevel {
-  border: 2px solid;
+  border: var(--border-width) solid;
   border-left-color: var(--color-white);
   border-top-color: var(--color-white);
   border-right-color: var(--color-gray-dark);
@@ -7,7 +7,7 @@
 }
 
 @mixin bevel-deep {
-  border: 2px solid;
+  border: var(--border-width) solid;
   border-left-color: var(--color-white);
   border-top-color: var(--color-white);
   border-right-color: var(--color-black);
@@ -23,7 +23,7 @@
 }
 
 @mixin bevel-inset-deep {
-  border: 2px solid;
+  border: var(--border-width) solid;
   border-left-color: var(--color-black);
   border-top-color: var(--color-black);
   border-right-color: var(--color-white);

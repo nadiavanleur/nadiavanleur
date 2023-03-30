@@ -59,9 +59,27 @@ module.exports = {
     "gatsby-plugin-sharp",
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-svgr`,
+    `gatsby-image`,
+    {
+      resolve: `gatsby-plugin-svgr`,
+      options: {
+        svgoConfig: {
+          plugins: [
+            {
+              name: 'preset-default',
+              params: {
+                overrides: {
+                  removeDimensions: false,
+                  removeViewBox: false,
+                  cleanupIDs: true,
+                },
+              },
+            }
+          ],
+        },
+      },
+    },
     `gatsby-transformer-inline-svg`,
-    `gatsby-plugin-react-svg`,
     {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig

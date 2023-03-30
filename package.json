@@ -13,10 +13,11 @@
     "gatsby-link": "^5.7.0",
     "gatsby-plugin-image": "^3.7.0",
     "gatsby-plugin-react-helmet": "^6.7.0",
-    "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-sass": "^6.7.0",
     "gatsby-plugin-sharp": "^5.7.0",
     "gatsby-plugin-svgr": "^3.0.0-beta.0",
+    "gatsby-plugin-svgr-loader": "^0.1.0",
+    "gatsby-plugin-svgr-svgo": "^2.0.0",
     "gatsby-remark-images-contentful": "^6.7.0",
     "gatsby-source-contentful": "^8.7.0",
     "gatsby-transformer-inline-svg": "^1.2.0",
@@ -41,7 +42,7 @@
     "url": "git+https://github.com/nadiavanleur/nadiavanleur.git"
   },
   "scripts": {
-    "dev": "gatsby develop",
+    "dev": "rm -rf .cache && gatsby develop",
     "build": "gatsby build",
     "heroku-postbuild": "gatsby build",
     "serve": "gatsby serve",

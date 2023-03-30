@@ -1,6 +1,14 @@
-.start-menu {
+@import '../../styles/mixins/bevel.scss';
+
+.container {
+  position: relative;
 }
 
-.start-menu__button {
-  font-weight: bold;
+.menu {
+  @include bevel-deep;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  background: var(--color-gray);
 }

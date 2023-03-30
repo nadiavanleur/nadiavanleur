@@ -9,11 +9,11 @@ const Footer = () => {
 
   return (
     <footer className={style.footer}>
-      <div className={style.left}>
+      <div>
         <StartMenu />
         {/* @TODO Quick access menu */}
       </div>
-      <div className={style.right}>
+      <div>
         {/* @TODO clock */}
       </div>
     </footer>

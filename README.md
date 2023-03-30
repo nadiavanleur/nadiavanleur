@@ -44,3 +44,5 @@ Windows 98 icons: https://win98icons.alexmeub.com/
 Windows 98 emulator: https://copy.sh/v86/?profile=windows98
 Colors: https://networkencyclopedia.com/wp-content/uploads/2019/10/windows-98-desktop.png?ezimgfmt=ng:webp/ngcb2
 Sources: https://github.com/zabdalimov/win98
+Cursors: http://www.rw-designer.com/cursor-detail/151740
+Font: https://www.dafont.com/leviwindows.font?text=All+your+base+belong+to+us.+Cancel+OK

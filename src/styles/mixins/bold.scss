@@ -1,0 +1,6 @@
+@mixin bold {
+  $bold-offset: 0.04em;
+  letter-spacing: $bold-offset * 2;
+  text-shadow: $bold-offset 0 0 var(--color-black),
+               -$bold-offset 0 0 var(--color-black);
+}

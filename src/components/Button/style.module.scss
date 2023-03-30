@@ -1,13 +1,62 @@
-@import '../../assets/styles/mixins/bevel.scss';
+@import '../../styles/mixins/bevel.scss';
+@import '../../styles/mixins/bold.scss';
 
 .button {
   @include bevel-deep;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   display: flex;
   border-radius: 0;
   gap: var(--spacing-xxs);
-  flex-direction: space-between;
   align-items: center;
-  padding: var(--spacing-xxxs) var(--spacing-xxs);
+  padding: var(--spacing-xxxs);
   background: var(--color-gray);
+  font-size: var(--font-size-md);
+}
+
+.icon {
+  display: block;
+  height: calc(var(--font-size-md) * var(--line-height));
+  width: auto;
+}
+
+.label {
+  display: block;
+}
+
+// Modifiers
+.button--bold {
+  .label {
+    @include bold;
+  }
+}
+
+.button--active {
+  @include bevel-inset-deep;
+}
+
+.menu,
+.menu-lg {
+  border: none;
+  width: 100%;
+
+  &:hover,
+  &:focus {
+    background: var(--color-blue);
+    color: var(--color-white);
+  }
+}
+
+.menu {
+  padding: var(--spacing-xxs);
+  gap: var(--spacing-xs);
+}
+
+.menu-lg {
+  padding: var(--spacing-xs);
+  gap: var(--spacing-sm);
+
+  .icon {
+    height: var(--font-size-xxxl);
+    width: auto;
+  }
 }

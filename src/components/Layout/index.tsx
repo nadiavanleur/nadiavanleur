@@ -1,6 +1,5 @@
 import React from "react";
 import Footer from "../Footer";
-import '../../assets/styles/style.scss'
 import * as style from './style.module.scss';
 
 type Props = {
