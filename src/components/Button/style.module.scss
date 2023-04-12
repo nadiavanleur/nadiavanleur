@@ -3,7 +3,6 @@
 
 .button {
   @include bevel-deep;
-  cursor: var(--cursor-pointer);
   display: flex;
   border-radius: 0;
   gap: var(--spacing-xxs);

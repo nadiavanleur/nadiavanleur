@@ -22,6 +22,7 @@
   --color-black: #000000;
   --color-teal: #008080;
   --color-blue: #010180;
+  --color-blue-rgb: rgb(1, 1, 128);
 
   // Fonts
   --font-family-base: 'Windows', sans-serif;
@@ -62,9 +63,11 @@
   margin: 0;
   box-sizing: border-box;
   font-family: var(--font-family-base);
+  cursor: var(--cursor-default);
+  font-size: var(--font-size-md);
 
   &:focus {
-    @include focus;
+    @include focus-inside;
   }
 }
 
@@ -76,4 +79,10 @@ body {
 
 hr {
   @include bevel-inset;
+}
+
+button {
+  appearance: none;
+  background: none;
+  border: none;
 }

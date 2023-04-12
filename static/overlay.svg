@@ -1,0 +1,15 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+  <filter id="texture" x="0" y="0" width="100%" height="100%">
+    <feImage width="16" height="16" result="checkerboard-image"
+              xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAADFBMVEXMzMzLy8v////+/v7l
+9thZAAAAO0lEQVR4ASXIUQ3AIBAFsJKcACQxu4/kBCAJFUu2ftbUYeWYI8G51kqU3VSCm68l
+hpyH/nuWHaQH2eoF1bMYGK3LF0IAAAAASUVORK5CYII="/>
+    <feTile in="checkerboard-image" result="texture" />
+    <feBlend in="SourceGraphic" in2="texture" mode="multiply" />
+    <feTile/>
+  </filter>
+
+  <image xlink:href="https://mdn.mozillademos.org/files/6457/mdn_logo_only_color.png"
+      x="0" y="0" width="100%" height="100%" style="filter:url(#texture);"/>
+</svg>

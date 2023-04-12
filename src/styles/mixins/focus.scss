@@ -1,4 +1,29 @@
 @mixin focus {
   outline: 1px dotted currentColor;
+  outline-offset: -1px;
+}
+
+@mixin focus-inside {
+  @include focus;
   outline-offset: calc(-1 * (var(--border-width) + var(--spacing-xxxs)));
+}
+
+@mixin focus-colored {
+  @include focus;
+  display: block;
+  background-color: var(--color-blue);
+}
+
+@mixin focus-overlay {
+  position: relative;
+
+  &::after {
+    content: url('../../assets/icons/focus-overlay.svg');
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
 }

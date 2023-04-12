@@ -1,17 +1,19 @@
 import React from "react";
 import Layout from "../components/Layout";
+import Desktop from "../components/Desktop";
 // import useMetadata from "../queries/metadata.graphql";
 
 const Index = () => {
   return (
     <>
-     <Layout>
-      {/* <Hero />
+      <Layout>
+        <Desktop />
+        {/* <Hero />
       <About />
       <Skills />
       <Projects />
       <Footer /> */}
-    </Layout>
+      </Layout>
     </>
   )
 }

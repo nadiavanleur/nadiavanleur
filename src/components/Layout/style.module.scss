@@ -5,6 +5,11 @@
   background: var(--color-teal);
 }
 
+.main {
+  flex: 1 1 100%;
+  display: grid;
+}
+
 .footer {
-  margin-top: auto;
+  flex: 0 0 auto;
 }

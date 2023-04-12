@@ -4,10 +4,10 @@ import { ReactComponent as WindowsIcon } from '../../../src/assets/icons/windows
 
 type Props = {
   icon: keyof typeof ICONS,
-  className: string
+  className?: string
 }
 
-const ICONS: { [key: string]: FC<React.SVGProps<SVGSVGElement>> } = {
+export const ICONS: { [key: string]: FC<React.SVGProps<SVGSVGElement>> } = {
   placeholder: PlaceholderIcon,
   windows: WindowsIcon,
 } as const;
