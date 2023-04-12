@@ -11,6 +11,7 @@
   padding: var(--spacing-xxxs);
   background: var(--color-gray);
   font-size: var(--font-size-md);
+  width: max-content;
 }
 
 .icon {
@@ -21,6 +22,7 @@
 
 .label {
   display: block;
+  flex-shrink: 0;
 }
 
 // Modifiers
@@ -37,6 +39,7 @@
 .menu,
 .menu-lg {
   border: none;
+  min-width: 200px;
   width: 100%;
 
   &:hover,
@@ -49,6 +52,7 @@
 .menu {
   padding: var(--spacing-xxs);
   gap: var(--spacing-xs);
+  width: 100%;
 }
 
 .menu-lg {

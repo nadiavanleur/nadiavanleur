@@ -1,5 +1,6 @@
 @import '/node_modules/normalize-scss/sass/normalize';
 @import './mixins/focus.scss';
+@import './mixins/bevel.scss';
 
 @font-face {
   font-family: 'Windows';
@@ -71,4 +72,8 @@ body {
   font-size: var(--font-size-md);
   line-height: var(--line-height);
   cursor: var(--cursor-default);
+}
+
+hr {
+  @include bevel-inset;
 }

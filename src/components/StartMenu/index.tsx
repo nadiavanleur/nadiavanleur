@@ -1,46 +1,90 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "../Button";
+import Hr from "../Hr";
 import * as style from "./style.module.scss";
+
+const MENU_ITEMS = [
+  {
+    label: <><u>P</u>rograms</>,
+    icon: 'placeholder',
+    onClick: () => { }
+  },
+  {
+    label: <><u>D</u>ocuments</>,
+    icon: 'placeholder',
+    onClick: () => { }
+  },
+  {
+    label: <><u>S</u>ettings</>,
+    icon: 'placeholder',
+    onClick: () => { }
+  },
+  {
+    label: <><u>F</u>ind</>,
+    icon: 'placeholder',
+    onClick: () => { }
+  },
+  {
+    label: <><u>H</u>elp</>,
+    icon: 'placeholder',
+    onClick: () => { }
+  },
+  {
+    label: <><u>R</u>un...</>,
+    icon: 'placeholder',
+    onClick: () => { }
+  },
+  {
+    element: <Hr />
+  },
+  {
+    label: <><u>L</u>og off..</>,
+    icon: 'placeholder',
+    onClick: () => { }
+  },
+  {
+    label: <>Sh<u>u</u>t down..</>,
+    icon: 'placeholder',
+    onClick: () => { }
+  }
+]
 
 const StartMenu = () => {
   const [active, setActive] = useState(false);
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      if (active && containerRef.current && e.target instanceof HTMLElement && !containerRef.current.contains(e.target)) setActive(false)
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setActive(false);
+      }
     }
-    // Bind the event listener
-    document.addEventListener("mousedown", handleClick);
+
+    document.addEventListener('click', handleClick);
 
     return () => {
-      // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClick);
-    };
-  }, [containerRef]);
+      document.removeEventListener('click', handleClick);
+    }
+  }, []);
 
   return (
     <nav className={style.container} ref={containerRef}>
-      <Button label="Start" onClick={() => setActive(!active)} icon="windows" isBold isActive={active} />
-      <div className={style.menu} hidden={!active}>
-        <ul>
-          <li>
-            <Button label="Programs" icon="placeholder" onClick={() => { }} styleModifier="menuLg" />
-          </li>
-          <li>
-            <Button label="Documents" icon="placeholder" onClick={() => { }} styleModifier="menuLg" />
-          </li>
-          <li>
-            <Button label="Settings" icon="placeholder" onClick={() => { }} styleModifier="menuLg" />
-          </li>
-          <li>
-            <Button label="Search" icon="placeholder" onClick={() => { }} styleModifier="menuLg" />
-          </li>
-          <li>
-            <Button label="Run" icon="placeholder" onClick={() => { }} styleModifier="menuLg" />
-          </li>
-        </ul>
-      </div>
+      <Button label="Start" icon="windows" isBold isActive={active} onClick={() => setActive(prevActive => !prevActive)} />
+      {active && (
+        <div className={style.menu}>
+          <ul>
+            {MENU_ITEMS.map((item, n) => (
+              <li key={n}>
+                {item.element ? (
+                  <>{item.element}</>
+                ) : (
+                  <Button label={item.label} icon={item.icon} onClick={item.onClick} styleModifier="menuLg" />
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   )
 }
