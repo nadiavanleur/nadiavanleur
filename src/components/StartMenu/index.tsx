@@ -2,37 +2,44 @@ import React, { useState, useEffect, useRef } from "react";
 import Button from "../Button";
 import Hr from "../Hr";
 import * as style from "./style.module.scss";
+import useElementActive from "../../hooks/useElementActive";
 
 const MENU_ITEMS = [
   {
     label: <><u>P</u>rograms</>,
     icon: 'placeholder',
-    onClick: () => { }
+    onClick: () => { },
+    disabled: true
   },
   {
     label: <><u>D</u>ocuments</>,
     icon: 'placeholder',
-    onClick: () => { }
+    onClick: () => { },
+    disabled: true
   },
   {
     label: <><u>S</u>ettings</>,
     icon: 'placeholder',
-    onClick: () => { }
+    onClick: () => { },
+    disabled: true
   },
   {
     label: <><u>F</u>ind</>,
     icon: 'placeholder',
-    onClick: () => { }
+    onClick: () => { },
+    disabled: true
   },
   {
     label: <><u>H</u>elp</>,
     icon: 'placeholder',
-    onClick: () => { }
+    onClick: () => { },
+    disabled: true
   },
   {
     label: <><u>R</u>un...</>,
     icon: 'placeholder',
-    onClick: () => { }
+    onClick: () => { },
+    disabled: true
   },
   {
     element: <Hr />
@@ -40,37 +47,24 @@ const MENU_ITEMS = [
   {
     label: <><u>L</u>og off..</>,
     icon: 'placeholder',
-    onClick: () => { }
+    onClick: () => { },
+    disabled: true
   },
   {
     label: <>Sh<u>u</u>t down..</>,
     icon: 'placeholder',
-    onClick: () => { }
+    onClick: () => { },
+    disabled: true
   }
 ]
 
 const StartMenu = () => {
-  const [active, setActive] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
-        setActive(false);
-      }
-    }
-
-    document.addEventListener('click', handleClick);
-
-    return () => {
-      document.removeEventListener('click', handleClick);
-    }
-  }, []);
+  const { isActive, setIsActive, containerRef } = useElementActive(false, true);
 
   return (
     <nav className={style.container} ref={containerRef}>
-      <Button label="Start" icon="windows" isBold isActive={active} onClick={() => setActive(prevActive => !prevActive)} />
-      {active && (
+      <Button label="Start" icon="windows" isBold isActive={isActive} onClick={() => setIsActive(prevActive => !prevActive)} />
+      {isActive && (
         <div className={style.menu}>
           <ul>
             {MENU_ITEMS.map((item, n) => (
@@ -78,7 +72,7 @@ const StartMenu = () => {
                 {item.element ? (
                   <>{item.element}</>
                 ) : (
-                  <Button label={item.label} icon={item.icon} onClick={item.onClick} styleModifier="menuLg" />
+                  <Button label={item.label} icon={item.icon} onClick={item.onClick} styleModifier="buttonMenuLg" disabled={item.disabled} />
                 )}
               </li>
             ))}

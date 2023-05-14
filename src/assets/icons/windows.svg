@@ -1,18 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14">
-  <defs>
-    <style>
-      .cls-2{fill:#00f}.cls-3{fill:#ff0}.cls-4{fill:red}
-    </style>
-  </defs>
   <g id="clip-path">
     <path d="M8 1h1v12H8zm1-1h1v12H9zm1 0h1v12h-1zm1 0h1v12h-1zm1 0h1v12h-1zm1 1h1v12h-1zm1 0h1v12h-1zm1 1h1v12h-1zM2 3h1v2H2zm1 1h1v1H3zm1-1h1v2H4zm1 0h1v2H5zm1-1h1v12H6zm1-1h1v12H7zM0 11h1v2H0zm2 1h1v2H2zm1 1h1v1H3zm1-1h1v2H4zm1 0h1v2H5zM0 2h1v2H0z"/>
-    <path class="cls-4" d="M0 5h1v2H0zm8-2h1v3H8zm1-1h1v3H9z"/>
-    <path class="cls-2" d="M8 8h1v3H8z"/>
-    <path class="cls-3" d="M13 8h1v3h-1z"/>
-    <path class="cls-2" d="M9 7h1v3H9z"/>
-    <path class="cls-3" d="M12 7h1v3h-1z"/>
+    <path fill="red" d="M0 5h1v2H0zm8-2h1v3H8zm1-1h1v3H9z"/>
+    <path fill="#00f" d="M8 8h1v3H8z"/>
+    <path fill="#ff0" d="M13 8h1v3h-1z"/>
+    <path fill="#00f" d="M9 7h1v3H9z"/>
+    <path fill="#ff0" d="M12 7h1v3h-1z"/>
     <path d="M13 3h1v3h-1zm-1-1h1v3h-1z" fill="#0f0"/>
-    <path class="cls-2" d="M0 8h1v2H0zm2 1h1v2H2zm1 1h1v1H3zm1-1h1v2H4zm1 0h1v2H5z"/>
-    <path class="cls-4" d="M2 6h1v2H2zm1 1h1v1H3zm1-1h1v2H4zm1 0h1v2H5z"/>
+    <path fill="#00f" d="M0 8h1v2H0zm2 1h1v2H2zm1 1h1v1H3zm1-1h1v2H4zm1 0h1v2H5z"/>
+    <path fill="red" d="M2 6h1v2H2zm1 1h1v1H3zm1-1h1v2H4zm1 0h1v2H5z"/>
   </g>
 </svg>

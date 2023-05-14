@@ -11,6 +11,23 @@
   background: var(--color-gray);
   font-size: var(--font-size-md);
   width: max-content;
+
+  &:focus {
+    @include bevel-inset-deep;
+  }
+
+  &:disabled {
+    text-shadow: 1px 1px 0 var(--color-white);
+
+    &:hover {
+      color: var(--color-gray-dark);
+      text-shadow: none;
+    }
+
+    .icon {
+      filter: grayscale(100%);
+    }
+  }
 }
 
 .icon {
@@ -35,8 +52,15 @@
   @include bevel-inset-deep;
 }
 
-.menu,
-.menu-lg {
+.button--small {
+  svg {
+    width: 8px;
+    height: 7px;
+  }
+}
+
+.button--menu,
+.button--menu-lg {
   border: none;
   min-width: 200px;
   width: 100%;
@@ -45,16 +69,17 @@
   &:focus {
     background: var(--color-blue);
     color: var(--color-white);
+    border: none;
   }
 }
 
-.menu {
+.button--menu {
   padding: var(--spacing-xxs);
   gap: var(--spacing-xs);
   width: 100%;
 }
 
-.menu-lg {
+.button--menu-lg {
   padding: var(--spacing-xs);
   gap: var(--spacing-sm);
 

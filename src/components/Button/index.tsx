@@ -1,24 +1,27 @@
 import React, { forwardRef, HTMLProps } from 'react';
-import Icon from '../Icon'
+import Icon, { IconNameType } from '../Icon'
 import * as style from './style.module.scss';
 
 type Props = {
   label: string | JSX.Element,
-  icon: string,
+  icon: IconNameType,
+  disabled?: boolean,
   isBold?: boolean,
   isActive?: boolean,
-  styleModifier?: string,
+  isSmall?: boolean,
+  styleModifier?: "buttonMenu" | "buttonMenuLg",
+  labelHidden?: boolean,
   onClick?: () => void,
 };
 
-const Button = forwardRef<HTMLButtonElement, Props>(({ label, icon, onClick, isBold, isActive, styleModifier }, ref) => { // Use forwardRef
+const Button = forwardRef<HTMLButtonElement, Props>(({ label, icon, onClick, isBold, isActive, isSmall, styleModifier, labelHidden, disabled }, ref) => { // Use forwardRef
 
   return (
-    <button ref={ref} onClick={onClick} className={`${style.button} ${isBold ? style.buttonBold : ''} ${isActive ? style.buttonActive : ''} ${styleModifier ? style[styleModifier] : ''}`.trim()}>
+    <button ref={ref} onClick={onClick} className={`${style.button} ${isSmall ? style.buttonSmall : ''} ${isBold ? style.buttonBold : ''} ${isActive ? style.buttonActive : ''} ${styleModifier ? style[styleModifier] : ''}`.trim()} disabled={disabled}>
       <div>
         {icon && <Icon icon={icon} className={style.icon} />}
       </div>
-      <div className={style.label}>{label}</div>
+      <div className={`${style.label} ${labelHidden ? 'u-visually-hidden' : ''}`.trim()}>{label}</div>
     </button>
   )
 });

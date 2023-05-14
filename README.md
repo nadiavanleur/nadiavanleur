@@ -1,5 +1,7 @@
 # Portfolio site with Contentful and Gatsby
 
+Windows style portfolio base
+
 Static sites are scalable, secure and have very little required maintenance. They come with a drawback though. Not everybody feels good editing files, building a project and uploading it somewhere. This is where Contentful comes into play.
 
 With Contentful and Gatsby you can connect your favorite static site generator with an API that provides an easy to use interface for people writing content and automate the publishing using services like [Travis CI](https://travis-ci.org/) or [Netlify](https://www.netlify.com/).
@@ -40,7 +42,11 @@ You can learn more about how Contentful userland is organized by visiting [our a
 
 ## Sources
 
-Windows 98 icons: https://win98icons.alexmeub.com/
+Windows 98 icons:
+
+- https://win98icons.alexmeub.com/
+- https://oldwindowsicons.tumblr.com/post/686876974215528448/windows-98-my-documents
+
 Windows 98 emulator: https://copy.sh/v86/?profile=windows98
 Colors: https://networkencyclopedia.com/wp-content/uploads/2019/10/windows-98-desktop.png?ezimgfmt=ng:webp/ngcb2
 Sources: https://github.com/zabdalimov/win98

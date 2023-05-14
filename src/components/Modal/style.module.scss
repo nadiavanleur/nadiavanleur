@@ -1,0 +1,77 @@
+@import '../../styles/mixins/bevel.scss';
+
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.modal {
+  @include bevel-deep;
+  padding: 2px;
+  background: var(--color-gray);
+  display: block;
+  height: 100%;
+}
+
+.resize-handle {
+  background-color: var(--color-gray);
+  background-image: linear-gradient(
+    to top left,
+    var(--color-gray) 1px,
+    var(--color-gray-dark) 2px,
+    var(--color-white) 3px,
+    var(--color-gray) 4px,
+    var(--color-gray-dark) 5px,
+    var(--color-white) 6px,
+    var(--color-gray) 7px,
+    var(--color-gray-dark) 8px,
+    var(--color-white) 9px,
+    var(--color-gray) 10px
+  );
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  cursor: var(--cursor-resize);
+}
+
+.header {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-xxxs);
+  gap: var(--spacing-xs);
+}
+
+.title {
+  white-space: nowrap;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1;
+}
+
+.nav {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: flex-end;
+  gap: var(--spacing-xxs);
+}
+
+// Modifiers
+.modal--inactive {
+  .header {
+    background-color: var(--color-gray-dark);
+    color: var(--color-gray);
+  }
+}
