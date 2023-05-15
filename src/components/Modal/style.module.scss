@@ -14,14 +14,14 @@
 
 .modal {
   @include bevel-deep;
-  padding: 2px;
+  padding: var(--spacing-xxxs);
   background: var(--color-gray);
-  display: block;
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }
 
 .resize-handle {
-  background-color: var(--color-gray);
   background-image: linear-gradient(
     to top left,
     var(--color-gray) 1px,
@@ -33,17 +33,25 @@
     var(--color-gray) 7px,
     var(--color-gray-dark) 8px,
     var(--color-white) 9px,
-    var(--color-gray) 10px
+    var(--color-gray) 10px,
+    transparent 11px
   );
-  width: 20px;
-  height: 20px;
+  width: var(--resize-handle-size);
+  height: var(--resize-handle-size);
   position: absolute;
-  bottom: 4px;
-  right: 4px;
+  bottom: calc(var(--spacing-xxxs) + var(--border-width) + 1px);
+  right: calc(var(--spacing-xxxs) + var(--border-width) + 1px);
   cursor: var(--cursor-resize);
+  border: 1px solid var(--color-gray);
+  border-top: none;
+  border-left: none;
 }
 
 .header {
+  flex: 0 0 auto;
+}
+
+.header-top {
   background-color: var(--color-blue);
   color: var(--color-white);
   display: flex;
@@ -61,11 +69,24 @@
   line-height: 1;
 }
 
-.nav {
+.header-nav {
   display: flex;
-  flex: 0 0 auto;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: var(--spacing-xxs);
+}
+
+.main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+  padding: var(--spacing-xxxs);
+}
+
+.content-container {
+  @include bevel-inset;
+
+  width: 100%;
+  height: 100%;
 }
 
 // Modifiers

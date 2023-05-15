@@ -1,10 +1,11 @@
 import React from 'react';
+import Textarea from '../../Textarea';
 
 const AboutMe = () => {
   return (
-    <div>
-      <h1>About Me</h1>
-    </div>
+    <Textarea>
+      text
+    </Textarea>
   );
 };
 

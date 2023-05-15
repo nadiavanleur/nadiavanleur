@@ -1,0 +1,36 @@
+@mixin scrollbar-right {
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    background: var(--color-gray);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    width: var(--resize-handle-size);
+    top: 0;
+  }
+}
+
+@mixin scrollbar-bottom {
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    background: var(--color-gray);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    left: 0;
+    height: var(--resize-handle-size);
+  }
+}
+
+@mixin scrollbars {
+  @include scrollbar-right;
+  @include scrollbar-bottom;
+}

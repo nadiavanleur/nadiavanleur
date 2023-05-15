@@ -26,7 +26,7 @@ const ITEMS = [
   // },
   {
     label: 'About me',
-    icon: 'documents',
+    icon: 'text-file',
     children: <AboutMe />,
   },
   {

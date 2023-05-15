@@ -35,18 +35,21 @@ const Modal = ({ title, children, isOpen, modalFunctions, isActive = true }: Pro
         >
           <div className={`${style.modal} ${isActive ? '' : style.modalInactive}`.trim()}>
             <header className={`handle ${style.header}`}>
-              {!!title && <h2 className={style.title}>{title}</h2>}
-              <nav className={style.nav}>
-                <Button
-                  icon="close"
-                  onClick={closeModal}
-                  label="Close"
-                  labelHidden
-                  isSmall
-                />
-              </nav>
+              <div className={style.headerTop}>
+                {!!title && <h2 className={style.title}>{title}</h2>}
+                <nav className={style.headerNav}>
+                  <Button
+                    icon="close"
+                    onClick={closeModal}
+                    label="Close"
+                    labelHidden
+                    isSmall
+                  />
+                </nav>
+              </div>
+              <nav className={style.mainNav}></nav>
             </header>
-            <div>
+            <div className={style.contentContainer}>
               {children}
             </div>
           </div>
